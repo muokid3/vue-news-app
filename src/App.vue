@@ -7,7 +7,6 @@
 import TheHeader from "./components/layout/TheHeader.vue";
 
 export default {
-  name: "Vue News",
   components: {
     TheHeader,
   },

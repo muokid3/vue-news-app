@@ -26,7 +26,7 @@ export default {
   components: { BaseButton },
   data() {
     return {
-      search,
+      search:"",
     };
   },
 
