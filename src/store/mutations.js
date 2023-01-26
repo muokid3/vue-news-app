@@ -11,5 +11,9 @@ export default {
         const formattedToday = dd + "/" + mm + "/" + yyyy;
 
         state.title = formattedToday +": " + payload.title;
-  }
+    },
+    
+    setArticles(state, payload) {
+        state.articles = payload;   
+    }
 };

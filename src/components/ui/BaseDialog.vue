@@ -10,8 +10,8 @@
       <section>
         <slot></slot>
       </section>
-      <menu>
-        <slot v-if="!fixed">
+      <menu v-if="!fixed">
+        <slot name="actions">
           <base-button @click="tryClose">Close</base-button>
         </slot>
       </menu>

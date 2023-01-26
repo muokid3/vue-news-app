@@ -5,4 +5,8 @@ export default {
   title(state) {
     return state.title;
   },
+
+  articles(state) {
+    return state.articles;
+  },
 };

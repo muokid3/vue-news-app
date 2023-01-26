@@ -9,9 +9,12 @@
       <base-spinner></base-spinner>
     </div>
 
-    <section v-else-if="hasContent">
+    <ul v-else-if="hasContent">
       <!-- show content here -->
-    </section>
+      <li v-for="article in articles" :key="article.id">
+        {{ article }}
+      </li>
+    </ul>
 
     <h4 v-else>There are no news at the moment</h4>
   </base-card>
@@ -36,17 +39,30 @@ export default {
     title() {
       return this.$store.getters.title;
     },
+    articles() {
+      return this.$store.getters.articles;
+    },
   },
   methods: {
     handleError() {
       this.error = null;
     },
-    loadHeadlines(){
-
-    }
+    async loadHeadlines() {
+      try {
+        await this.$store.dispatch("getArticles", {
+          endpoint: "top-headlines",
+          country: "us",
+          category: null,
+          searchPhase: null,
+        });
+      } catch (error) {
+        this.error = error.message || "Something went wrong";
+      }
+      this.isLoading = false;
+    },
   },
   created() {
-    this.$store.dispatch('setTitle', {
+    this.$store.dispatch("setTitle", {
       title: "Top Headlines",
     });
     this.loadHeadlines();
