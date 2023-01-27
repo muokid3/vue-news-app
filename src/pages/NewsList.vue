@@ -11,9 +11,9 @@
 
     <ul v-else-if="hasContent">
       <!-- show content here -->
-      <li v-for="article in articles" :key="article.id">
+      <news-item v-for="article in articles" :key="article.id" :article="article">
         {{ article }}
-      </li>
+      </news-item>
     </ul>
 
     <h4 v-else>There are no news at the moment</h4>
@@ -23,9 +23,11 @@
 <script>
 import BaseCard from "../components/ui/BaseCard.vue";
 import BaseDialog from "../components/ui/BaseDialog.vue";
+import NewsItem from "../components/news/NewsItem.vue";
+
 
 export default {
-  components: { BaseCard, BaseDialog },
+  components: { BaseCard, BaseDialog,NewsItem },
   data() {
     return {
       isLoading: false,

@@ -4,7 +4,7 @@ export default {
   },
   async getArticles(context, payload) {
     let constructedUrl = payload.endpoint;
-    constructedUrl += "?apiKey=API_KEY_HERE";
+    constructedUrl += "?apiKey=d15cbfa82693405e87bad11f5a75c299";
 
     if (typeof payload.country !== "undefined" && payload.country !== null)
       constructedUrl += "&country=" + payload.country;
